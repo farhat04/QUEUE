@@ -1,0 +1,40 @@
+class Queueusingsinglestack():
+    def __init__(self):
+        self.stack=[]
+
+    def enqueue(self,item):
+        self.stack.append(item)
+
+    def dequeue(self):
+        if not self.stack:
+            return "Queue is empty"
+        elif len(self.stack)==1:
+            return self.stack.pop()
+        else:
+            front=self.stack.pop()
+            dequeued_item=self.dequeue()
+            self.stack.append(front)
+            return dequeued_item
+        
+    def peek(self):
+        if not self.stack:
+            return "Queue is empty"
+        return self.stack[0]
+    
+    def is_empty(self):
+        return not self.stack
+    
+quss=Queueusingsinglestack()
+quss.enqueue(1)
+quss.enqueue(2)
+quss.enqueue(3)
+print(quss.dequeue())
+print(quss.peek())
+print(quss.dequeue())
+print(quss.is_empty())
+print(quss.dequeue())
+print(quss.is_empty())
+print(quss.dequeue())
+
+
+
